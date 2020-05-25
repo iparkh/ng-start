@@ -1,1 +1,10 @@
 <p>post works!</p>
+<!-- <input type="text" (input)="onInput($event)" name="test" id="test"> -->
+<!-- <input type="text" (keyup.enter)="onInput($event)" name="test" id="test"> -->
+<input type="text" 
+       (keyup.enter)="onInput($event)" 
+       (blur)="onBlur(testInput.value)" 
+       #testInput
+       name="test" id="test">
+<p>{{inputValue}} </p>
+<button (click)="onClickMe()">Click me</button>

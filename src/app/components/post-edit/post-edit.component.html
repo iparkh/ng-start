@@ -1,0 +1,50 @@
+<p>post-edit works!</p>
+{{now | date}}
+<hr/>
+<button (click)="colorToggle=!colorToggle">Toggle</button>
+<div
+        [ngStyle]="{
+            
+            width:'200px',    
+            height:'200px',    
+            borderRadius:'5px',
+            border:'1px solid #ccc',
+            color:colorToggle ? 'red':'blue'
+        }"
+>
+ngStyle, change style
+
+</div>
+<div   [ngClass]="{
+    red: colorToggle,
+    blue:!colorToggle
+}"
+>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit eveniet nulla aut! Sequi, repudiandae. Repellendus nemo et amet maxime asperiores nesciunt assumenda, optio, neque necessitatibus, veritatis alias placeat facilis numquam?</p>
+</div>
+<p 
+    [class.red]="!colorToggle"
+    [class.blue]="colorToggle"
+>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae sapiente, quisquam ad doloribus, voluptates quibusdam est possimus eius explicabo aut omnis neque assumenda minus nisi ratione dolores modi voluptatum facere.</p>
+<button (click)="toggle=!toggle">Toggle next 2</button>
+<p *ngIf="toggle" class="red">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, odio.</p>
+<p *ngIf="!toggle" class="blue" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, sapiente!</p>
+<hr/>
+<p *ngIf="toggle; else nextP" class="red">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, odio.</p>
+<ng-template #nextP>
+    <p class="blue">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, sapiente!</p>    
+</ng-template>
+<hr/>
+<div [ngSwitch]="toggle">
+    <div *ngSwitchCase="true" class="red">red</div>
+    <div *ngSwitchCase="false" class="blue">red</div>
+    <div *ngSwitchDefault >Default</div>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let val of arr; let idx=index">
+           {{idx+1}}:{{val}}
+        </li>
+    </ul>
+</div>

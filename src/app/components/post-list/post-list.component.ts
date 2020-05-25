@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  title ='Перелік постів'
+  title ='Initial'
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  onInput(event){
+    console.log(event);
+    this.title=event.target.value;
+  }
 }
